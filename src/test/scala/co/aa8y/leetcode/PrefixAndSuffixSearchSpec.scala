@@ -2,7 +2,7 @@ package co.aa8y.leetcode
 
 import org.scalatest.FunSpec
 
-class PrefixAndSuffixSearchSpec extends FunSpec {
+class PrefixAndSuffixSearchSpec extends FunSpec with ResourceHelper {
   describe("Problem 745: Prefix and Suffix Search") {
     describe("WordFilter.f()") {
       val words = Array("ducking", "dancing", "driving", "catching", "arrival")
@@ -26,7 +26,7 @@ class PrefixAndSuffixSearchSpec extends FunSpec {
       }
     }
     describe("LeetCode") {
-      describe("Test case #7") {
+      it("Test case #7") {
         val wordFilter = new WordFilter(Array("pop"))
         val computed = Seq(
           ("", ""),
@@ -65,6 +65,17 @@ class PrefixAndSuffixSearchSpec extends FunSpec {
         val expected = Seq(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1)
 
         assert(computed === expected)
+      }
+      it("Test case #9") {
+        val words = read("words.txt")
+        val wordFilter = new WordFilter(words)
+        val prefixes = read("prefixes.txt")
+        val suffixes = read("suffixes.txt")
+
+        val computed = prefixes.zip(suffixes).map { case (prefix, suffix) => wordFilter.f(prefix, suffix) }
+        val expected = read("weights.txt").map(_.toInt).toSeq
+
+        assert(computed.sameElements(expected))
       }
     }
   }
