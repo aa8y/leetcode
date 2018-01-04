@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: aa8y/sbt:1.0
+      - image: aa8y/sbt:ci
     working_directory: /usr/src/app
     environment:
       JVM_OPTS: -Xmx3200m
