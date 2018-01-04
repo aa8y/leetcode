@@ -13,6 +13,9 @@ class UniquePathsSpec extends FunSpec {
       }
     }
     describe("LeetCode") {
+      it("Test case #1") {
+        assert(uniquePaths(1, 2) === 1)
+      }
       it("Test case #43") {
         assert(uniquePaths(13, 23) === 548354040)
       }

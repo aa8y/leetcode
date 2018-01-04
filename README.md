@@ -11,3 +11,8 @@
       [Source](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/PrefixAndSuffixSearch.scala) /
       [Test](https://github.com/aa8y/leetcode/blob/master/src/test/scala/co/aa8y/leetcode/PrefixAndSuffixSearchSpec.scala)
       (Passes test cases 10/12)
+
+749\. [Shortest Completing Word](https://leetcode.com/problems/shortest-completing-word/description/):
+      [Source](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/ShortestCompletingWord.scala) /
+      [Test](https://github.com/aa8y/leetcode/blob/master/src/test/scala/co/aa8y/leetcode/ShortestCompletingWordSpec.scala)
+      (Accepted)

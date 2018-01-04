@@ -3,6 +3,8 @@ package co.aa8y.leetcode
 import scala.collection.mutable.Map
 
 /**
+ * 62. Unique Paths
+ *
  * A robot is located at the top-left corner of a m x n grid (marked 'S' for 'Start' in the diagram
  * below).
  *
@@ -22,7 +24,7 @@ import scala.collection.mutable.Map
  *
  * Note: m and n will be at most 100.
  */
-oject UniquePaths {
+object UniquePaths {
   def uniquePaths(m: Int, n: Int): Int = {
     val cache = Map[(Int, Int), Int]()
 
