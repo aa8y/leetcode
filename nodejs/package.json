@@ -1,0 +1,30 @@
+{
+  "name": "leetcode",
+  "version": "0.1.0-SNAPSHOT",
+  "description": "Solutions to LeetCode problems in NodeJS.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src test",
+    "test": "istanbul cover _mocha test/*Test.js test/**/*Test.js && npm run lint"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.10.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/aa8y/leetcode"
+  },
+  "keywords": [
+    "leetcode",
+    "nodejs"
+  ],
+  "author": "Arun Allamsetty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aa8y/leetcode/issues"
+  },
+  "homepage": "https://github.com/aa8y/leetcode#readme"
+}
