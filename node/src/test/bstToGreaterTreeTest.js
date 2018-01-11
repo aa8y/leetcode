@@ -1,6 +1,8 @@
 const { assert } = require('chai')
 
-const { TreeNode, convertBST } = require('../main/bstToGreaterTree')
+const { TreeNode } = require('../main/lib/BinaryTree')
+
+const { convertBST } = require('../main/bstToGreaterTree')
 
 describe('538. Convert BST to Greater Tree', () => {
   describe('convertBST()', () => {
