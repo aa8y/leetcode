@@ -15,5 +15,16 @@ function reverseList(head, acc) {
 
   return reverseList(head.next, new ListNode(head.val, acc))
 }
+function reverseListMutated(head, acc) {
+  if (!head) return acc || null
+  if (!acc) {
+    acc = new ListNode(head.val)
+  } else {
+    let tmp = new ListNode(head.val)
+    tmp.next = acc
+    acc = tmp
+  }
+  return reverseListMutated(head.next, acc)
+}
 
-module.exports = { reverseList }
+module.exports = { reverseList, reverseListMutated }
