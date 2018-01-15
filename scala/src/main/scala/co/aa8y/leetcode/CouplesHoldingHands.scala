@@ -31,4 +31,52 @@ import scala.annotation.tailrec
  * 2. row is guaranteed to be a permutation of 0...len(row)-1.
  */
 object CouplesHoldingHands {
+  def minSwapsCouples(row: Array[Int]): Int = {
+    @tailrec
+    def loop(row: Array[Int], i: Int, swaps: Int): Int = {
+      println(row.toList, i, swaps)
+      val l = row(i)
+      val r = row(i + 1)
+
+      if (i == row.size) swaps
+      else if (isEven(i)) {
+        if (isCouple(l, r)) {
+          loop(row, i + 2, swaps)
+        } else if (l > r) {
+          loop(swap(i, i + 1), i + 1, swaps + 1)
+        } else {//if (l < r && r - l == 1) {
+          loop(swap(i + 1, i + 2), i, swaps + 1)
+        //} else {
+        }
+      } else {
+        if (l < r) {
+          loop(swap(i + 1, i + 2), i - 1, swaps + 1)
+        } else {
+          loop(swap(i + 1, i + 2), i, swaps + 1)
+        }
+      }
+    }
+    def swap(i: Int, j: Int): Array[Int] = {
+      val tmp = row(i)
+      row(i) = row(j)
+      row(j) = tmp
+
+      row
+    }
+    if (row.size == 0) 0 else loop(row, 0, 0)
+  }
+
+  def getCouple(n: Int): Int = {
+    if (isEven(n)) n + 1 else n - 1
+  }
+
+  def isCouple(l: Int, r: Int): Boolean = {
+    if (l < r) {
+      r - l == 1 && isEven(l)
+    } else {
+      l - r == 1 && isEven(r)
+    }
+  }
+
+  def isEven(n: Int): Boolean = n % 2 == 0
 }
