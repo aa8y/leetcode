@@ -8,10 +8,10 @@
     "test": "istanbul cover _mocha src/test/*Test.js src/test/**/*Test.js && npm run lint"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^4.15.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
     "istanbul": "^0.4.5",
-    "mocha": "^4.1.0"
+    "mocha": "^5.2.0"
   },
   "repository": {
     "type": "git",
