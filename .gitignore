@@ -1,4 +1,2 @@
 **/target/
-node/coverage/
-node/node_modules/
 scala/project/project

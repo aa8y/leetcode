@@ -24,10 +24,3 @@ jobs:
             - ~/.sbt
           key: sbt-dependencies-{{ checksum "scala/project/build.properties" }}
       - run: cd scala && sbt test
-      - restore_cache:
-          keys:
-          - npm-dependencies-{{ checksum "node/package-lock.json" }}
-      - save_cache:
-          paths:
-            - ./node_modules
-          key: npm-dependencies-{{ checksum "node/package-lock.json" }}
