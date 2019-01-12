@@ -11,16 +11,16 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - build-dependencies-{{ checksum "scala/build.sbt" }}
-          - sbt-dependencies-{{ checksum "scala/project/build.properties" }}
-      - run: cd scala && sbt test:compile
+          - build-dependencies-{{ checksum "build.sbt" }}
+          - sbt-dependencies-{{ checksum "project/build.properties" }}
+      - run: sbt test:compile
       - save_cache:
           paths:
             - ~/.ivy2/cache
             - ~/.m2
-          key: build-dependencies--{{ checksum "scala/build.sbt" }}
+          key: build-dependencies--{{ checksum "build.sbt" }}
       - save_cache:
           paths:
             - ~/.sbt
-          key: sbt-dependencies-{{ checksum "scala/project/build.properties" }}
-      - run: cd scala && sbt test
+          key: sbt-dependencies-{{ checksum "project/build.properties" }}
+      - run: sbt test

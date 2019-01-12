@@ -1,4 +1,4 @@
-name := "leetcode"
+name := "leetcode-scala"
 
 version := "0.1.0-SNAPSHOT"
 
