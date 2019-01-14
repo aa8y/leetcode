@@ -4,3 +4,4 @@
 
 | #    | Problem  |  Difficulty  |  Status (w/ Source) |
 |-----:|:---------|:------------:|:-------------------:|
+| 973  | [K Closest Points to Origin](https://leetcode.com/contest/weekly-contest-119/problems/k-closest-points-to-origin/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/KClosestPointsToOrigin.java) |
