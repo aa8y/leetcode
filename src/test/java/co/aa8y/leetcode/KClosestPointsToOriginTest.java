@@ -1,17 +1,11 @@
 package co.aa8y.leetcode;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import static org.junit.Assert.assertArrayEquals;
+import org.junit.jupiter.api.Test;
 
 public class KClosestPointsToOriginTest {
-  KClosestPointsToOrigin kClosestPointsToOrigin;
-
-  @Before
-  public void setup() {
-    kClosestPointsToOrigin = new KClosestPointsToOrigin();
-  }
+  private KClosestPointsToOrigin solution = new KClosestPointsToOrigin();
 
   @Test
   public void testLeetCodeExample1() {
@@ -23,7 +17,7 @@ public class KClosestPointsToOriginTest {
     int[][] expected = {
       {-2, 2}
     };
-    int[][] actual = kClosestPointsToOrigin.kClosest(points, k);
+    int[][] actual = solution.kClosest(points, k);
 
     assertArrayEquals(expected, actual);
   }
@@ -40,7 +34,7 @@ public class KClosestPointsToOriginTest {
       {3, 3},
       {-2, 4}
     };
-    int[][] actual = kClosestPointsToOrigin.kClosest(points, k);
+    int[][] actual = solution.kClosest(points, k);
 
     assertArrayEquals(expected, actual);
   }

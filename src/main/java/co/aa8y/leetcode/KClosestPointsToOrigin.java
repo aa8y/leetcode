@@ -5,24 +5,16 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * <h1>
  * 973. K Closest Points to Origin
- * </h1>
  *
- * <p>
- * We have a list of points on the plane. Find the K closest points to the origin (0, 0).
- * </p>
- * <p>
- * (Here, the distance between two points on a plane is the Euclidean distance.)
- * </p>
- * <p>
- * You may return the answer in any order. The answer is guaranteed to be unique (except for the
+ * <p>We have a list of points on the plane. Find the K closest points to the origin (0, 0).
+ *
+ * <p>(Here, the distance between two points on a plane is the Euclidean distance.)
+ *
+ * <p>You may return the answer in any order. The answer is guaranteed to be unique (except for the
  * order that it is in.)
- * </p>
- * <h3>
- * Example 1:
- * </h3>
- * <pre>
+ *
+ * <p>Example 1:
  * Input: points = [[1,3],[-2,2]], K = 1
  * Output: [[-2,2]]
  * Explanation:
@@ -30,24 +22,16 @@ import java.util.PriorityQueue;
  *   The distance between (-2, 2) and the origin is sqrt(8).
  *   Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
  *   We only want the closest K = 1 points from the origin, so the answer is just [[-2,2]].
- * </pre>
  *
- * <h3>
- * Example 2:
- * </h3>
- * <pre>
+ * <p>Example 2:
  * Input: points = [[3,3],[5,-1],[-2,4]], K = 2
  * Output: [[3,3],[-2,4]]
  * (The answer [[-2,4],[3,3]] would also be accepted.)
- * </pre>
- * <h3>
- * Note:
- * </h3>
- * <p>
+ *
+ * <p>Note:
  * 1. 1 <= K <= points.length <= 10000
  * 2. -10000 < points[i][0] < 10000
  * 3. -10000 < points[i][1] < 10000
- * </p>
  */
 public class KClosestPointsToOrigin {
   static class PointDistance {
