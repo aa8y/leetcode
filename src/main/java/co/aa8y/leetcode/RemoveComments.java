@@ -5,33 +5,34 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Given a C++ program, remove comments from it. The program source is an array where source[i]
- * is the i-th line of the source code. This represents the result of splitting the original
- * source code string by the newline character \n.
+ * Given a C++ program, remove comments from it. The program source is an array where
+ * {@code source[i]} is the i-th line of the source code. This represents the result of splitting
+ * the original source code string by the newline character {@code \n}.
  *
  * <p>In C++, there are two types of comments, line comments, and block comments.
  *
- * <p>The string // denotes a line comment, which represents that it and rest of the characters to
- * the right of it in the same line should be ignored.
+ * <p>The string {@code// denotes a line comment}, which represents that it and rest of the
+ * characters to the right of it in the same line should be ignored.
  *
- * <p>The string /* denotes a block comment, which represents that all characters until the next
- * (non-overlapping) occurrence of <asterisk>/ should be ignored. (Here, occurrences happen in
- * reading order: line by line from left to right.) To be clear, the string /<asterisk>/ does
- * not yet end the block comment, as the ending would be overlapping the beginning.
+ * <p>The string <code>/* denotes a block comment, which represents that all characters until the
+ * next (non-overlapping) occurrence of *&#47;</code> should be ignored. (Here, occurrences happen
+ * in reading order: line by line from left to right.) To be clear, the string
+ * <code>&#47;*&#47;</code> does not yet end the block comment, as the ending would be overlapping
+ * the beginning.
  *
- * <p>The first effective comment takes precedence over others: if the string // occurs in a block
- * comment, it is ignored. Similarly, if the string /* occurs in a line or block comment, it is
- * also ignored.
+ * <p>The first effective comment takes precedence over others: if the string {@code //} occurs in
+ * a block comment, it is ignored. Similarly, if the string {@code /*} occurs in a line or block
+ * comment, it is also ignored.
  *
  * <p>If a certain line of code is empty after removing comments, you must not output that line:
  * each string in the answer list will be non-empty.
  *
  * <p>There will be no control characters, single quote, or double quote characters. For example,
- * source = "string s = "/* Not a comment. <asterisk>/";" will not be a test case. (Also, nothing
- * else such as defines or macros will interfere with the comments.)
+ * <code>source = "string s = "/* Not a comment. *&#47;";"</code> will not be a test case. (Also,
+ * nothing else such as defines or macros will interfere with the comments.)
  *
- * <p>It is guaranteed that every open block comment will eventually be closed, so /* outside of a
- * line or block comment always starts a new comment.
+ * <p>It is guaranteed that every open block comment will eventually be closed, so {@code /*}
+ * outside of a line or block comment always starts a new comment.
  *
  * <p>Finally, implicit newline characters can be deleted by block comments. Please see the examples
  * below for details.
@@ -72,7 +73,7 @@ public class RemoveComments {
    * or string state when we encounter a '/' or a '"' respectively. Here, the accumulator, 'acc'
    * contains all of the decommented code.
    *
-   * While the question specifies that none of the test cases will have comments within a string,
+   * <p>While the question specifies that none of the test cases will have comments within a string,
    * I wanted to handle that case as well.
    */
   private List<Character> codeState(List<Character> source, List<Character> acc) {
@@ -136,9 +137,9 @@ public class RemoveComments {
   }
 
   /**
-   * This state drops everything provided the multi-line comments end with a <asterisk>/. If that
-   * doesn't happen and the source ends, all the characters stored in the 'prev' stack are added to
-   * the accumulator in the correct order and returned to the code state.
+   * This state drops everything provided the multi-line comments end with a <code>*&#47;</code>. If
+   * that doesn't happen and the source ends, all the characters stored in the {@code prev} stack 
+   * are added to the accumulator in the correct order and returned to the code state.
    */
   private List<Character> multiLineCommentState(List<Character> source,
                                                 Stack<Character> prev,
