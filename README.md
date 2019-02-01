@@ -19,3 +19,4 @@
 | 937  | [Reorder Log Files](https://leetcode.com/contest/weekly-contest-110/problems/reorder-log-files/) | Easy | [Accepted](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/ReorderLogFiles.scala) |
 | 940  | [Distinct Subsequences II](https://leetcode.com/contest/weekly-contest-110/problems/distinct-subsequences-ii/) | Hard | [49 / 109 test cases passed](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/DistinctSubsequences2.scala) |
 | 970  | [Powerful Integers](https://leetcode.com/contest/weekly-contest-118/problems/powerful-integers/) | Easy | [Accepted](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/PowerfulIntegers.scala) |
+| 983  | [Minimum Cost For Tickets](https://leetcode.com/contest/weekly-contest-121/problems/minimum-cost-for-tickets/) | Medium | [Accepted](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/MinimumCostForTickets.scala) |
