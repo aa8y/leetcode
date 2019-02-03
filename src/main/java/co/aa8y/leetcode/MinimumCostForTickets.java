@@ -42,7 +42,7 @@ import java.util.Queue;
  * <p>Note:
  * 1. {@code 1 <= days.length <= 365}
  * 2. {@code 1 <= days[i] <= 365}
- * 3. days is in strictly increasing order.
+ * 3. {@code days} is in strictly increasing order.
  * 4. {@code costs.length == 3}
  * 5. {@code 1 <= costs[i] <= 1000}
  * 
