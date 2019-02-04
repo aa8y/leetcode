@@ -100,10 +100,8 @@ public class Candy {
   }
 
   private void assignCandy(CandyAssignment assignment, int candy) {
-    CandyAssignment updatedAssignment = assignment.toBuilder()
-                                                  .withCandy(candy)
-                                                  .build();
-    updateCache(updatedAssignment);
+    assignment.setCandy(candy);
+    updateCache(assignment);
   }
 
   private Optional<CandyAssignment> getLeftNeighbor(int[] ratings, int index) {
@@ -132,10 +130,7 @@ public class Candy {
   }
 
   private CandyAssignment getChild(int[] ratings, int index) {
-    return getCache(index).orElse(CandyAssignment.builder()
-                                                 .withChild(index)
-                                                 .withRating(ratings[index])
-                                                 .build());
+    return getCache(index).orElse(new CandyAssignment(index, ratings[index]));
   }
 
   private Optional<CandyAssignment> getCache(int index) {
@@ -152,9 +147,9 @@ public class Candy {
   private static enum Neighbor { LEFT, RIGHT }
 
   private static class CandyAssignment {
-    private final int candy;
-    private final int child;
-    private final int rating;
+    private int candy;
+    private int child;
+    private int rating;
 
     private CandyAssignment(int candy, int child, int rating) {
       this.candy = candy;
@@ -166,10 +161,6 @@ public class Candy {
       this.candy = 1;
       this.child = child;
       this.rating = rating;
-    }
-
-    public static Builder builder() {
-      return new Builder();
     }
 
     public int getCandy() {
@@ -184,43 +175,16 @@ public class Candy {
       return this.rating;
     }
 
-    public Builder toBuilder() {
-      return new Builder(this.candy, this.child, this.rating);
+    public void setCandy(int candy) {
+      this.candy = candy;
     }
 
-    static class Builder {
-      private int candy;
-      private int child;
-      private int rating;
+    public void setChild(int child) {
+      this.child = child;
+    }
 
-      protected Builder() { }
-
-      protected Builder(int candy, int child, int rating) {
-        this.candy = candy;
-        this.child = child;
-        this.rating = rating;
-      }
-
-      public Builder withCandy(int candy) {
-        this.candy = candy;
-        return this;
-      }
-
-      public Builder withChild(int child) {
-        this.child = child;
-        return this;
-      }
-
-      public Builder withRating(int rating) {
-        this.rating = rating;
-        return this;
-      }
-
-      public CandyAssignment build() {
-        return this.candy == 0
-          ? new CandyAssignment(this.child, this.rating)
-          : new CandyAssignment(this.candy, this.child, this.rating);
-      }
+    public void setRating(int rating) {
+      this.rating = rating;
     }
   }
 }

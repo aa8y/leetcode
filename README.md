@@ -4,7 +4,7 @@
 
 | #    | Problem  |  Difficulty  |  Status (w/ Source) |
 |-----:|:---------|:------------:|:-------------------:|
-| 135  | [Candy](https://leetcode.com/problems/candy/) | Hard | [47 / 48 test cases passed](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/Candy.java) |
+| 135  | [Candy](https://leetcode.com/problems/candy/) | Hard | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/Candy.java) |
 | 722  | [Remove Comments](https://leetcode.com/problems/remove-comments/) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/RemoveComments.java) |
 | 973  | [K Closest Points to Origin](https://leetcode.com/contest/weekly-contest-119/problems/k-closest-points-to-origin/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/KClosestPointsToOrigin.java) |
 | 981  | [Time Based Key-Value Store](https://leetcode.com/contest/weekly-contest-121/problems/time-based-key-value-store) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/TimeBasedKeyValueStore.java) |

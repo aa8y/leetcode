@@ -162,8 +162,8 @@ public class CandyTest {
   }
 
   @Test
-  public void testLeetCodeTestCaseA() throws URISyntaxException {
-    int[] ratings = getRatingsFromFile("/135_Candy_LeetCodeTestCaseA.txt");
+  public void testLeetCodeTestCase4X() throws URISyntaxException {
+    int[] ratings = getRatingsFromFile("/135_Candy_LeetCodeTestCase4X.txt");
     int expected = 72006000;
     int actual = solution.candy(ratings);
 
