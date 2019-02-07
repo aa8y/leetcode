@@ -24,6 +24,7 @@ public class RemoveCommentsTest {
       "a = b + c;",
       "}"
     };
+    // CHECKSTYLE:OFF
     List<String> expected = Arrays.asList(
       "int main()",
       "{ ",
@@ -32,6 +33,7 @@ public class RemoveCommentsTest {
       "a = b + c;",
       "}"
     );
+    // CHECKSTYLE:ON
     List<String> actual = solution.removeComments(source);
 
     assertIterableEquals(expected, actual);

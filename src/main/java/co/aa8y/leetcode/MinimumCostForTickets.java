@@ -51,32 +51,15 @@ import java.util.Queue;
  * Ref: https://leetcode.com/problems/minimum-cost-for-tickets/discuss/226659/Two-DP-solutions-with-pictures
  */
 public class MinimumCostForTickets {
-  private static class PassCost {
-    private int day;
-    private int cost;
-
-    public PassCost(int day, int cost) {
-      this.day = day;
-      this.cost = cost;
-    }
-
-    public int getDay() {
-      return this.day;
-    }
-
-    public int getCost() {
-      return this.cost;
-    }
-
-    public void setDay(int day) {
-      this.day = day;
-    }
-
-    public void setCost(int cost) {
-      this.cost = cost;
-    }
-  }
-
+  /**
+   * Gives the minimum cost of the tickets for the given days given the daily, weekly and monthy
+   * prices of the tickets.
+   *
+   * @param days Days of travel
+   * @param costs Daily, weekly and montly travel prices in the 0th, 1st and 2nd indices of the
+   *              array respectively.
+   * @return Minimum cost of travel
+   */
   public int mincostTickets(int[] days, int[] costs) {
     int minCost = 0;
     int dailyCost = costs[0];
@@ -101,5 +84,31 @@ public class MinimumCostForTickets {
     }
 
     return minCost;
+  }
+
+  private static class PassCost {
+    private int day;
+    private int cost;
+
+    public PassCost(int day, int cost) {
+      this.day = day;
+      this.cost = cost;
+    }
+
+    public int getDay() {
+      return this.day;
+    }
+
+    public int getCost() {
+      return this.cost;
+    }
+
+    public void setDay(int day) {
+      this.day = day;
+    }
+
+    public void setCost(int cost) {
+      this.cost = cost;
+    }
   }
 }

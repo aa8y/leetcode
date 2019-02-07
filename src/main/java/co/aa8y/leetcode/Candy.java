@@ -32,6 +32,13 @@ public class Candy {
   private CandyAssignment[] cache;
   private LinkedList<Integer> processStack;
 
+  /**
+   * Gives the minimum number of candy that is needed to be assigned to all the children together,
+   * given their ratings.
+   *
+   * @param ratings Ratings of the children
+   * @return Minimum number of candy
+   */
   public int candy(int[] ratings) {
     if (ratings.length == 0) {
       return 0;

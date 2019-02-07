@@ -1,5 +1,6 @@
 plugins {
   id 'checkstyle'
+  id 'com.adarshr.test-logger' version '1.6.0'
   id 'java'
 }
 
@@ -9,6 +10,10 @@ repositories {
 
 test {
   useJUnitPlatform()
+}
+
+testlogger {
+  slowThreshold 5000
 }
 
 version = '0.1.1'

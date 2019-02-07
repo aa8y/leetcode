@@ -34,6 +34,54 @@ import java.util.PriorityQueue;
  * 3. {@code -10000 < points[i][1] < 10000}
  */
 public class KClosestPointsToOrigin {
+  private static final double INVALID_DISTANCE = -1D;
+  private static final int POINT_ARRAY_SIZE = 2;
+
+  /**
+   * Finds the k closest points to origin (0, 0) from the given list of points.
+   *
+   * @param points Given list of points
+   * @param k Number of closest points
+   * @return K closest points from origin
+   */
+  // CHECKSTYLE:OFF
+  public int[][] kClosest(int[][] points, int k) {
+  // CHECKSTYLE:ON
+    if (k == 0) {
+      return new int[k][POINT_ARRAY_SIZE];
+    }
+
+    PriorityQueue<PointDistance> pointDistances =
+        new PriorityQueue<>(k, new PointDistanceComparator());
+
+    for (int[] point : points) {
+      double distance = euclideanDistanceFromOrigin(point);
+      if (distance != INVALID_DISTANCE) {
+        pointDistances.add(new PointDistance(point, distance));
+      }
+    }
+
+    // CHECKSTYLE:OFF
+    int[][] kClosestPoints = new int[k][POINT_ARRAY_SIZE];
+    // CHECKSTYLE:ON
+    for (int i = 0; i < k; i++) {
+      kClosestPoints[i] = pointDistances.poll().getPoint();
+    }
+
+    return kClosestPoints;
+  }
+
+  private double euclideanDistanceFromOrigin(int[] point) {
+    if (point == null || point.length != POINT_ARRAY_SIZE) {
+      return INVALID_DISTANCE;
+    }
+
+    double x = new Integer(point[0]).doubleValue();
+    double y = new Integer(point[1]).doubleValue();
+
+    return Math.sqrt(x * x + y * y);
+  }
+
   static class PointDistance {
     private int[] point;
     private double distance;
@@ -72,42 +120,5 @@ public class KClosestPointsToOrigin {
         return 0;
       }
     }
-  }
-
-  private static final double INVALID_DISTANCE = -1D;
-  private static final int POINT_ARRAY_SIZE = 2;
-
-  public int[][] kClosest(int[][] points, int k) {
-    if (k == 0) {
-      return new int[k][POINT_ARRAY_SIZE];
-    }
-
-    PriorityQueue<PointDistance> pointDistances =
-        new PriorityQueue<>(k, new PointDistanceComparator());
-
-    for (int[] point : points) {
-      double distance = euclideanDistanceFromOrigin(point);
-      if (distance != INVALID_DISTANCE) {
-        pointDistances.add(new PointDistance(point, distance));
-      }
-    }
-
-    int[][] kClosestPoints = new int[k][POINT_ARRAY_SIZE];
-    for (int i = 0; i < k; i++) {
-      kClosestPoints[i] = pointDistances.poll().getPoint();
-    }
-
-    return kClosestPoints;
-  }
-
-  private double euclideanDistanceFromOrigin(int[] point) {
-    if (point == null || point.length != POINT_ARRAY_SIZE) {
-      return INVALID_DISTANCE;
-    }
-
-    double x = new Integer(point[0]).doubleValue();
-    double y = new Integer(point[1]).doubleValue();
-
-    return Math.sqrt(x * x + y * y);
   }
 }
