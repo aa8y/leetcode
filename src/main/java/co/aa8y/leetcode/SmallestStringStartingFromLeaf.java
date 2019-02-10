@@ -1,5 +1,6 @@
 package co.aa8y.leetcode;
 
+import co.aa8y.leetcode.common.TreeNode;
 import java.util.SortedSet;
 import java.util.Stack;
 import java.util.TreeSet;
@@ -102,38 +103,6 @@ public class SmallestStringStartingFromLeaf {
 
   protected static enum Label {
     DELETE,
-    LEFT,
-    RIGHT,
     TRAVERSE
-  }
-
-  protected static class TreeNode {
-    protected int val;
-    protected TreeNode left;
-    protected TreeNode right;
-
-    protected TreeNode(int val) {
-      this.val = val;
-    }
-
-    protected TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-
-    protected TreeNode(int val, TreeNode node, Label label) {
-      this.val = val;
-      if (label == Label.LEFT) {
-        this.left = node;
-        this.right = null;
-      } else if (label == Label.RIGHT) {
-        this.left = null;
-        this.right = node;
-      } else {
-        this.left = null;
-        this.right = null;
-      }
-    }
   }
 }
