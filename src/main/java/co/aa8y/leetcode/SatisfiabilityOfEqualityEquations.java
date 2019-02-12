@@ -3,6 +3,7 @@ package co.aa8y.leetcode;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
@@ -16,13 +17,13 @@ import java.util.stream.Stream;
  * Here, a and b are lowercase letters (not necessarily different) that represent one-letter
  * variable names.
  *
- * <p>Return true if and only if it is possible to assign integers to variable names so as to 
+ * <p>Return true if and only if it is possible to assign integers to variable names so as to
  * satisfy all the given equations.
  *
  * <p>Example 1:
  * Input: ["a==b","b!=a"]
  * Output: false
- * Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not 
+ * Explanation: If we assign say, a = 1 and b = 1, then the first equation is satisfied, but not
  *              the second. There is no way to assign the variables to satisfy both equations.
  *
  * <p>Example 2:
@@ -42,7 +43,7 @@ import java.util.stream.Stream;
  * Input: ["c==c","b==d","x!=z"]
  * Output: true
  *
- * Note:
+ * <p>Note:
  * 1. {@code 1 <= equations.length <= 500}
  * 2. {@code equations[i].length == 4}
  * 3. {@code equations[i][0]} and {@code equations[i][3]} are lowercase letters.
@@ -57,75 +58,69 @@ public class SatisfiabilityOfEqualityEquations {
    * @return true if possible, else false
    */
   public boolean equationsPossible(String[] equations) {
-    TreeSet<Equation> eqs = Arrays.stream(equations)
-                                  .map(String::trim)
-                                  .map(Equation::buildFrom)
-                                  .flatMap(o -> o.isPresent() ? Stream.of(o.get()) : Stream.empty())
-                                  .collect(Collectors.toCollection(TreeSet::new));
-    if (eqs.size() == 0 || eqs.size() == 1) {
+    if (equations.length == 0 || equations.length == 1) {
       return true;
     }
-    TreeSet<Equation> combinedEqs = combineEquations(eqs);
-    Optional<Equation> hasNaN = combinedEqs.stream()
-                                           .filter(Equation::isNaN)
-                                           .findAny();
+    Map<Boolean, TreeSet<Equation>> allEqs =
+        Arrays.stream(equations)
+              .map(String::trim)
+              .map(Equation::buildFrom)
+              .flatMap(o -> o.isPresent() ? Stream.of(o.get()) : Stream.empty())
+              .collect(Collectors.partitioningBy(e -> e.getOperation() == Operation.EQUALITY,
+                                                 Collectors.toCollection(TreeSet::new)));
+    TreeSet<Equation> eqs = allEqs.get(true);
+    TreeSet<Equation> ineqs = allEqs.get(false);
+    Optional<Equation> hasNaN = ineqs.stream()
+                                     .filter(Equation::isNaN)
+                                     .findAny();
     if (hasNaN.isPresent()) {
       return false;
     }
-    // for (Equation e : combinedEqs) {
-    //   System.out.println(e);
-    // }
+    TreeSet<Equation> combinedEqs = combineEquations(eqs);
 
-    while (combinedEqs.size() > 1) {
-      Equation prev = combinedEqs.pollFirst();
-      Equation curr = combinedEqs.pollFirst();
-      // System.out.println("Previous: " + prev);
-      // System.out.println("Current:  " + curr);
-
-      if (prev.getOperation() != curr.getOperation()) {
-        if (prev.getLeft() == curr.getLeft() && prev.getRight() == curr.getRight()) {
-          return false;
-        }
-        combinedEqs.add(curr);
-      } else {
-        combinedEqs.add(curr);
-      }
-    }
-    return true;
+    return checkSatisfiability(combinedEqs, ineqs);
   }
 
   private TreeSet<Equation> combineEquations(TreeSet<Equation> eqs) {
     TreeSet<Equation> combined = new TreeSet<>();
 
-    while (eqs.size() > 1) {
-      Equation prev = eqs.pollFirst();
-      Equation curr = eqs.pollFirst();
+    while (!eqs.isEmpty()) {
+      Equation next = eqs.pollFirst();
+      TreeSet<Equation> localCombined = new TreeSet<>();
 
-      if (prev.getOperation() != curr.getOperation()
-          && prev.getLeft() == curr.getLeft()
-          && prev.getRight() == curr.getRight()) {
-        eqs.add(new Equation(prev.getLeft(), curr.getLeft(), Operation.INEQUALITY));
-      } else if (prev.getOperation() == Operation.EQUALITY
-                 && curr.getOperation() == Operation.EQUALITY) {
-        if (prev.getLeft() == curr.getLeft() && prev.getRight() != curr.getRight()) {
-          eqs.add(new Equation(prev.getRight(), curr.getRight(), Operation.EQUALITY));
-        } else if (prev.getLeft() != curr.getLeft() && prev.getRight() == curr.getRight()) {
-          eqs.add(new Equation(prev.getLeft(), curr.getLeft(), Operation.EQUALITY));
-        } else if (prev.getLeft() != curr.getRight() && prev.getRight() == curr.getLeft()) {
-          eqs.add(new Equation(prev.getLeft(), curr.getRight(), Operation.EQUALITY));
-        } else {
-          combined.add(prev);
-          eqs.add(curr);
+      for (Equation eq : eqs) {
+        Optional<Equation> comb = Equation.buildFrom(next, eq);
+        if (comb.isPresent() && !combined.contains(comb.get())) {
+          localCombined.add(comb.get());
         }
-      } else {
-        combined.add(prev);
-        eqs.add(curr);
       }
-    }
-    if (!eqs.isEmpty()) {
-      combined.add(eqs.pollFirst());
+      combined.add(next);
+      eqs.addAll(localCombined);
     }
     return combined;
+  }
+
+  private boolean checkSatisfiability(TreeSet<Equation> eqs, TreeSet<Equation> ineqs) {
+    while (!eqs.isEmpty() && !ineqs.isEmpty()) {
+      Equation eq = eqs.pollFirst();
+      Equation ineq = ineqs.pollFirst();
+
+      if (eq.getLeft() > ineq.getLeft()) {
+        eqs.add(eq);
+      } else if (eq.getLeft() < ineq.getLeft()) {
+        ineqs.add(ineq);
+      } else {
+        if (eq.getRight() > ineq.getRight()) {
+          eqs.add(eq);
+        } else if (eq.getRight() < ineq.getRight()) {
+          ineqs.add(ineq);
+        } else {
+          return false;
+        }
+      }
+    }
+
+    return true;
   }
 
   private static enum Operation {
@@ -177,8 +172,27 @@ public class SatisfiabilityOfEqualityEquations {
       if (o.isPresent()) {
         if (l > r) {
           return Optional.of(new Equation(r, l, o.get()));
+        } else if (l < r) {
+          return Optional.of(new Equation(l, r, o.get()));
+        } else {
+          if (o.get() == Operation.INEQUALITY) {
+            return Optional.of(new Equation(l, r, Operation.INEQUALITY));
+          }
         }
-        return Optional.of(new Equation(l, r, o.get()));
+      }
+      return Optional.empty();
+    }
+
+    public static Optional<Equation> buildFrom(Equation l, Equation r) {
+      if (l.getOperation() == Operation.INEQUALITY || r.getOperation() == Operation.INEQUALITY) {
+        return Optional.empty();
+      }
+      if (l.getLeft() == r.getLeft() && l.getRight() != r.getRight()) {
+        return Optional.of(new Equation(l.getRight(), r.getRight(), Operation.EQUALITY));
+      } else if (l.getLeft() != r.getLeft() && l.getRight() == r.getRight()) {
+        return Optional.of(new Equation(l.getLeft(), r.getLeft(), Operation.EQUALITY));
+      } else if (l.getLeft() != r.getRight() && l.getRight() == r.getLeft()) {
+        return Optional.of(new Equation(l.getLeft(), r.getRight(), Operation.EQUALITY));
       }
       return Optional.empty();
     }

@@ -212,24 +212,24 @@ public class SatisfiabilityOfEqualityEquationsTest {
     assertEquals(expected, actual);
   }
 
-  // @Test
-  // public void testLeetCodeTestCase170() {
-  //   String[] equations = {
-  //     "g==c",
-  //     "f!=e",
-  //     "e==b",
-  //     "j==b",
-  //     "g!=a",
-  //     "e==c",
-  //     "b!=f",
-  //     "d!=a",
-  //     "j==g",
-  //     "f!=i",
-  //     "a==e"
-  //   };
-  //   boolean expected = false;
-  //   boolean actual = solution.equationsPossible(equations);
+  @Test
+  public void testLeetCodeTestCase170() {
+    String[] equations = {
+      "g==c",
+      "f!=e",
+      "e==b",
+      "j==b",
+      "g!=a",
+      "e==c",
+      "b!=f",
+      "d!=a",
+      "j==g",
+      "f!=i",
+      "a==e"
+    };
+    boolean expected = false;
+    boolean actual = solution.equationsPossible(equations);
 
-  //   assertEquals(expected, actual);
-  // }
+    assertEquals(expected, actual);
+  }
 }

@@ -18,6 +18,16 @@ testlogger {
 
 version = '0.1.1'
 
+compileJava {
+  options.encoding = 'UTF-8'
+  options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+}
+
+compileTestJava {
+  options.encoding = 'UTF-8'
+  options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+}
+
 dependencies {
   testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.+'
   testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.+'
