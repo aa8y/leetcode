@@ -1,14 +1,8 @@
 package co.aa8y.leetcode;
 
+import static co.aa8y.leetcode.testutils.FileUtil.readLinesAsIntArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
 public class CandyTest {
@@ -162,8 +156,8 @@ public class CandyTest {
   }
 
   @Test
-  public void testLeetCodeTestCase4X() throws URISyntaxException {
-    int[] ratings = getRatingsFromFile("/135_Candy_LeetCodeTestCase4X.txt");
+  public void testLeetCodeTestCase4X() {
+    int[] ratings = readLinesAsIntArray("/135_Candy_LeetCodeTestCase4X.txt");
     int expected = 72006000;
     int actual = solution.candy(ratings);
 
@@ -171,23 +165,11 @@ public class CandyTest {
   }
 
   @Test
-  public void testLeetCodeTestCase48() throws URISyntaxException {
-    int[] ratings = getRatingsFromFile("/135_Candy_LeetCodeTestCase48.txt");
+  public void testLeetCodeTestCase48() {
+    int[] ratings = readLinesAsIntArray("/135_Candy_LeetCodeTestCase48.txt");
     int expected = 200010000;
     int actual = solution.candy(ratings);
 
     assertEquals(expected, actual);
-  }
-
-  private int[] getRatingsFromFile(String fileName) {
-    URL url = this.getClass().getResource(fileName);
-
-    try (Stream<String> lines = Files.lines(Paths.get(url.toURI()))) {
-      return lines.map(Integer::parseInt)
-                  .mapToInt(Integer::intValue)
-                  .toArray();
-    } catch (IOException | URISyntaxException e) {
-      throw new IllegalArgumentException(fileName + " could not be read.", e);
-    }
   }
 }
