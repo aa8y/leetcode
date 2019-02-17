@@ -3,7 +3,9 @@
 [![CircleCI](https://circleci.com/gh/aa8y/leetcode-java.svg?style=svg)](https://circleci.com/gh/aa8y/leetcode-java)
 
 | #    | Problem  |  Difficulty  |  Status (w/ Source) | Runtime | Memory Usage |
-|-----:|:---------|:------------:|:-------------------:|:-------:|:------------:|
+|-----:|:---------|:------------:|:-------------------:|--------:|-------------:|
+|    1 | [Two Sum](https://leetcode.com/problems/two-sum/submissions/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/TwoSumBruteForce.java) | 44 ms | 39.5 MB |
+|      |                                                               |      | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/TwoSumLinearTime.java) |  4 ms | 38.4 MB |
 |   13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy | TODO | NA | NA |
 |   76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | TODO | NA | NA |
 |  108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) | Easy | TODO | NA | NA |
