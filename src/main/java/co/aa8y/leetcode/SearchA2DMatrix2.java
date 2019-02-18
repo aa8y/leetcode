@@ -42,20 +42,17 @@ public class SearchA2DMatrix2 {
 
   private boolean searchMatrix(int[][] matrix,
                                int target,
-                               int mStart,
-                               int mEnd,
-                               int nStart,
-                               int nEnd) {
-    if ((mStart == mEnd
-      && nStart == nEnd
-      && mStart == nStart
-      && target != matrix[mStart][nStart])
-      || mStart > mEnd
-      || nStart > nEnd) {
+                               int startM,
+                               int endM,
+                               int startN,
+                               int endN) {
+    if ((startM == endM && startN == endN && startM == startN && target != matrix[startM][startN]) 
+        || startM > endM
+        || startN > endN) {
       return false;
     }
-    int m = (mStart + mEnd) / 2;
-    int n = (nStart + nEnd) / 2;
+    int m = (startM + endM) / 2;
+    int n = (startN + endN) / 2;
     OptionalInt possibleTarget = getPossibleTarget(matrix, m, n);
 
     if (!possibleTarget.isPresent()) {
@@ -66,13 +63,13 @@ public class SearchA2DMatrix2 {
     }
 
     if (target > possibleTarget.getAsInt()) {
-      return searchMatrix(matrix, target, m + 1, mEnd, n + 1, nEnd)      // Bottom-right quadrant
-        || searchMatrix(matrix, target, m + 1, mEnd, nStart, n)   // Bottom-left quadrant
-        || searchMatrix(matrix, target, mStart, m, n + 1, nEnd);  // Top-right quadrant
+      return searchMatrix(matrix, target, m + 1, endM, n + 1, endN)     // Bottom-right quadrant
+        || searchMatrix(matrix, target, m + 1, endM, startN, n)         // Bottom-left quadrant
+        || searchMatrix(matrix, target, startM, m, n + 1, endN);        // Top-right quadrant
     } else {
-      return searchMatrix(matrix, target, mStart, m - 1, nStart, n - 1)  // Top-right quadrant
-        || searchMatrix(matrix, target, m - 1, mEnd, nStart, n - 1)   // Bottom-left quadrant
-        || searchMatrix(matrix, target, mStart, m - 1, n, nEnd);  // Top-right quadrant
+      return searchMatrix(matrix, target, startM, m - 1, startN, n - 1) // Top-right quadrant
+        || searchMatrix(matrix, target, m - 1, endM, startN, n - 1)     // Bottom-left quadrant
+        || searchMatrix(matrix, target, startM, m - 1, n, endN);        // Top-right quadrant
     }
   }
 
