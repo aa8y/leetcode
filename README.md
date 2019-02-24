@@ -19,6 +19,7 @@
 |      |                                                                           |      | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ReverseLinkedListRecursive.java) | 0 ms | 37.6 MB | 
 |  240 | [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/SearchA2DMatrix2.java) | 24 ms | 50 MB |
 |  338 | [Counting Bits](https://leetcode.com/problems/counting-bits/) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/CountingBitsQuadratic.java) | 2 ms | 39.3 MB |
+|      |                                                               |        | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/CountingBitsLinear.java) | 1 ms | 39.6 MB |
 |  344 | [Reverse String](https://leetcode.com/problems/reverse-string/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ReverseString.java) | 12 ms | 48.4 MB |
 |  704 | [Binary Search](https://leetcode.com/problems/binary-search/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/BinarySearch.java) | 2 ms | 40.7 MB |
 |  722 | [Remove Comments](https://leetcode.com/problems/remove-comments/) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/RemoveComments.java) | 266 ms | 29 MB |
