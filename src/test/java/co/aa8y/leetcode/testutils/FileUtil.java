@@ -6,6 +6,8 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileUtil {
@@ -16,6 +18,16 @@ public class FileUtil {
       return lines.map(Integer::parseInt)
                   .mapToInt(Integer::intValue)
                   .toArray();
+    } catch (IOException | URISyntaxException e) {
+      throw new IllegalArgumentException(fileName + " could not be read.", e);
+    }
+  }
+
+  public static List<String> readLines(String fileName) {
+    URL url = FileUtil.class.getResource(fileName);
+
+    try (Stream<String> lines = Files.lines(Paths.get(url.toURI()))) {
+      return lines.collect(Collectors.toList());
     } catch (IOException | URISyntaxException e) {
       throw new IllegalArgumentException(fileName + " could not be read.", e);
     }
