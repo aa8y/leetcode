@@ -29,7 +29,8 @@ public class MinimumWindowSubstring {
    * @return Substring with all characters from the target
    */
   public String minWindow(String s, String t) {
-    int l = 0, r = 0;
+    int l = 0;
+    int r = 0;
     char[] cs = s.toCharArray();
     String substring = "";
     Window w = new Window(t);
