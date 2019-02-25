@@ -1,6 +1,6 @@
 package co.aa8y.leetcode;
 
-import static co.aa8y.leetcode.testutils.FileUtil.readLines;
+import static co.aa8y.leetcode.testutils.FileUtil.read;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -39,10 +39,30 @@ public class MinimumWindowSubstringTest {
   }
 
   @Test
+  public void testLeetCodeTestCase239() {
+    String s = "ab";
+    String t = "a";
+    String expected = "a";
+    String actual = solution.minWindow(s, t);
+
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testLeetCodeTestCase240() {
+    String s = "ab";
+    String t = "b";
+    String expected = "b";
+    String actual = solution.minWindow(s, t);
+
+    assertEquals(expected, actual);
+  }
+
+  @Test
   public void testLeetCodeTestCase268() {
-    String s = readLines("/76_MinimumWindowSubstring_LeetCodeTestCase268_S.txt").get(0);
-    String t = readLines("/76_MinimumWindowSubstring_LeetCodeTestCase268_T.txt").get(0);
-    String expected = readLines("/76_MinimumWindowSubstring_LeetCodeTestCase268_Expected.txt").get(0);
+    String s = read("/76_MinimumWindowSubstring_LeetCodeTestCase268_S.txt");
+    String t = read("/76_MinimumWindowSubstring_LeetCodeTestCase268_T.txt");
+    String expected = read("/76_MinimumWindowSubstring_LeetCodeTestCase268_Expected.txt");
     String actual = solution.minWindow(s, t);
 
     assertEquals(expected, actual);

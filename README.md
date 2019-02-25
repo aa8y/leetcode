@@ -9,7 +9,7 @@
 |   13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy | TODO | NA | NA |
 |   20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ValidParentheses.java) | 5 ms | 37.1 MB |
 |   70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ClimbingStairs.java) | 2 ms | 36.5 MB |
-|   76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | [Time Limit Exceeded](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/MinimumWindowSubstring.java) | NA | NA |
+|   76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/MinimumWindowSubstring.java) | 253 ms | 39.5 MB |
 |  108 | [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) | Easy | TODO | NA | NA |
 |  135 | [Candy](https://leetcode.com/problems/candy/) | Hard | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/Candy.java) | 9148 ms | 74.2 MB |
 |  190 | [Reverse Bits](https://leetcode.com/problems/reverse-bits/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ReverseBitsIterative.java) | 1 ms | 28 MB |

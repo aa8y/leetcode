@@ -1,10 +1,7 @@
 package co.aa8y.leetcode;
 
-import java.util.Comparator;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,8 +21,6 @@ import java.util.stream.IntStream;
  * window in S.
  */
 public class MinimumWindowSubstring {
-  private String substring = "";
-
   /**
    * Finds the shortest substring which has all the characters in the given target.
    *
@@ -34,48 +29,50 @@ public class MinimumWindowSubstring {
    * @return Substring with all characters from the target
    */
   public String minWindow(String s, String t) {
-    Set<Character> ts = IntStream.range(0, t.length())
-                                 .mapToObj(t::charAt)
-                                 .collect(Collectors.toSet());
-    Queue<Window> q = new LinkedList<>();
+    int l = 0, r = 0;
+    char[] cs = s.toCharArray();
+    String substring = "";
+    Window w = new Window(t);
 
-    for (char c : s.toCharArray()) {
-      Character curr = Character.valueOf(c);
-      if (ts.contains(curr)) {
-        q.add(new Window(t));
+    while (l < cs.length || r < cs.length) {
+      if (w.isDesirable()) {
+        substring = getMinimumSubstring(substring, w.getSubstring());
+        w.removeChar(cs[l++]);
+        if (t.length() > 1) {
+          while (true) {
+            char c = cs[l];
+            if (w.isTarget(c)) {
+              break;
+            }
+            w.removeChar(c);
+            l++;
+          }
+        }
+      } else if (r < cs.length) {
+        w.addChar(cs[r++]);
+      } else if (l < cs.length) {
+        w.removeChar(cs[l++]);
       }
-      processQueue(q, curr);
     }
     return substring;
   }
 
-  private void processQueue(Queue<Window> q, Character c) {
-    int initSize = q.size();
-
-    while (initSize-- > 0) {
-      Window w = q.remove();
-      w.addChar(c);
-      if (w.isViable(substring)) {
-        q.add(w);
-      }
-      if (!w.hasCapacity()) {
-        String tmp = w.getSubstring();
-        if (substring.isEmpty()) {
-          substring = tmp;
-        } else {
-          substring = substring.length() > tmp.length() ? tmp : substring;
-        }
-      }
+  private String getMinimumSubstring(String currentSubstring, String newSubstring) {
+    if (currentSubstring.isEmpty()) {
+      return newSubstring;
     }
+    return currentSubstring.length() > newSubstring.length() ? newSubstring : currentSubstring;
   }
 
   private static class Window {
     private final StringBuilder substring;
     private final String target;
+    private final Map<Character, Integer> substringFreq;
     private final Map<Character, Integer> targetFreq;
 
     public Window(String target) {
       this.substring = new StringBuilder();
+      this.substringFreq = new HashMap<>();
       this.target = target;
       this.targetFreq = IntStream.range(0, target.length())
                                  .mapToObj(target::charAt)
@@ -83,28 +80,36 @@ public class MinimumWindowSubstring {
     }
 
     public void addChar(Character c) {
-      if (targetFreq.containsKey(c)) {
-        Integer freq = targetFreq.get(c) - 1;
-        if (freq > 0) {
-          targetFreq.put(c, freq);
-        } else {
-          targetFreq.remove(c);
-        }
-      }
+      substringFreq.put(c, substringFreq.getOrDefault(c, 0) + 1);
       substring.append(c);
-    }
-
-    public boolean hasCapacity() {
-      return !targetFreq.isEmpty();
-    }
-
-    public boolean isViable(String globalSubstring) {
-      return hasCapacity() && (globalSubstring.isEmpty()
-                           ||  substring.length() < globalSubstring.length());
     }
 
     public String getSubstring() {
       return substring.toString();
+    }
+
+    public boolean isDesirable() {
+      for (Map.Entry<Character, Integer> e : targetFreq.entrySet()) {
+        Character key = e.getKey();
+        if (!substringFreq.containsKey(key) || substringFreq.get(key) < e.getValue()) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    public boolean isTarget(Character c) {
+      return targetFreq.containsKey(c);
+    }
+
+    public void removeChar(Character c) {
+      Integer freq = substringFreq.get(c) - 1;
+      if (freq > 0) {
+        substringFreq.put(c, freq);
+      } else {
+        substringFreq.remove(c);
+      }
+      substring.deleteCharAt(substring.indexOf(c.toString()));
     }
   }
 }
