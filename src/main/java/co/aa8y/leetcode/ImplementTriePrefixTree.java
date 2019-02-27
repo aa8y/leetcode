@@ -99,6 +99,10 @@ public class ImplementTriePrefixTree {
       return Optional.<TrieNode>empty();
     }
 
+    public Map<Character, TrieNode> getChildren() {
+      return this.children;
+    }
+
     public TrieNode getOrCreateChild(Character child) {
       Optional<TrieNode> node = getChild(child);
       if (node.isPresent()) {
