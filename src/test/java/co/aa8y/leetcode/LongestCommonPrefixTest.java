@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class LongestCommonPrefixTest {
+  private LongestCommonPrefixLinear solutionLinear = new LongestCommonPrefixLinear();
   private LongestCommonPrefixQuadratic solutionQuadratic = new LongestCommonPrefixQuadratic();
   private LongestCommonPrefixTrie solutionTrie = new LongestCommonPrefixTrie();
 
@@ -39,9 +40,11 @@ public class LongestCommonPrefixTest {
   }
 
   private void test(String[] input, String expected) {
+    String actualLinear = solutionLinear.longestCommonPrefix(input);
     String actualQuadratic = solutionQuadratic.longestCommonPrefix(input);
     String actualTrie = solutionTrie.longestCommonPrefix(input);
 
+    assertEquals(expected, actualLinear);
     assertEquals(expected, actualQuadratic);
     assertEquals(expected, actualTrie);
   }
