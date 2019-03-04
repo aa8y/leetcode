@@ -4,6 +4,7 @@
 
 | #    | Problem  |  Difficulty  |  Status (w/ Source) | Runtime | Memory Usage |
 |-----:|:---------|:------------:|:-------------------:|:-------:|:------------:|
+|   13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy | [Accepted](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/RomanToInteger.scala) | 428 ms | 53.6 MB |
 |   15 | [3Sum](https://leetcode.com/problems/3sum/) | Medium | [Accepted](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/ThreeSum.scala) | 8708 ms | 89.4 MB |
 |   62 | [Unique Paths](https://leetcode.com/problems/unique-paths/description/) | Medium | [Accepted](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/UniquePaths.scala) | 296 ms | 40.9 MB |
 |   76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | [155 / 268 test cases passed](https://github.com/aa8y/leetcode/blob/master/src/main/scala/co/aa8y/leetcode/MinimumWindowSubstring.scala) | NA | NA |
