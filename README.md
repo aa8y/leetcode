@@ -6,7 +6,7 @@
 |-----:|:---------|:------------:|:-------------------:|--------:|-------------:|
 |    1 | [Two Sum](https://leetcode.com/problems/two-sum/submissions/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/TwoSumBruteForce.java) | 44 ms | 39.5 MB |
 |      |                                                               |      | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/TwoSumLinearTime.java) |  4 ms | 38.4 MB |
-|   13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy | TODO | NA | NA |
+|   13 | [Roman to Integer](https://leetcode.com/problems/roman-to-integer/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/RomanToInteger.java) | 98 ms | 46.2 MB |
 |   14 | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/LongestCommonPrefixQuadratic.java) | 7 ms | 39 MB |
 |      |                                                                               |      | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/LongestCommonPrefixTrie.java) | 9 ms | 38.9 MB |
 |      |                                                                               |      | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/LongestCommonPrefixLinear.java) | 4 ms | 38.2 MB |
