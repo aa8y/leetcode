@@ -12,6 +12,7 @@
 |      |                                                                               |      | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/LongestCommonPrefixLinear.java) | 4 ms | 38.2 MB |
 |   20 | [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ValidParentheses.java) | 5 ms | 37.1 MB |
 |   48 | [Rotate Image](https://leetcode.com/problems/rotate-image/) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/RotateImage.java) | 1 ms | 37.3 MB |
+|   55 | [Jump Game](https://leetcode.com/problems/jump-game/) | Medium | [StackOverflow Error](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/JumpGame.java) | NA | NA |
 |   70 | [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) | Easy | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/ClimbingStairs.java) | 2 ms | 36.5 MB |
 |   76 | [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) | Hard | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/MinimumWindowSubstring.java) | 253 ms | 39.5 MB |
 |   79 | [Word Search](https://leetcode.com/problems/word-search/) | Medium | [Accepted](https://github.com/aa8y/leetcode-java/blob/master/src/main/java/co/aa8y/leetcode/WordSearch.java) | 79 ms | 62.6 MB |
