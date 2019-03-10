@@ -32,7 +32,8 @@ import java.util.stream.Stream;
  *   1. I can be placed before V (5) and X (10) to make 4 and 9.
  *   2. X can be placed before L (50) and C (100) to make 40 and 90.
  *   3. C can be placed before D (500) and M (1000) to make 400 and 900.
- * Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
+ * Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 
+ * 1 to 3999.
  *
  * <p>Example 1:
  * Input: "III"
@@ -57,7 +58,7 @@ import java.util.stream.Stream;
  * Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
  */
 public class RomanToInteger {
-  private final Map<Character, Integer> ROMAN_CHAR_VALUES = Stream.of(
+  private static final Map<Character, Integer> ROMAN_CHAR_VALUES = Stream.of(
       new SimpleImmutableEntry<>('I', 1),
       new SimpleImmutableEntry<>('V', 5),
       new SimpleImmutableEntry<>('X', 10),
@@ -65,10 +66,10 @@ public class RomanToInteger {
       new SimpleImmutableEntry<>('C', 100),
       new SimpleImmutableEntry<>('D', 500),
       new SimpleImmutableEntry<>('M', 1000))
-  .collect(Collectors.collectingAndThen(
-      Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue),
-      Collections::<Character, Integer> unmodifiableMap));
-  private final Comparator<Character> ROMAN_CHAR_COMPARATOR = new Comparator<Character>() {
+      .collect(Collectors.collectingAndThen(Collectors.toMap(Map.Entry::getKey, 
+                                                             Map.Entry::getValue),
+                                            Collections::<Character, Integer>unmodifiableMap));
+  private static final Comparator<Character> ROMAN_CHAR_COMPARATOR = new Comparator<Character>() {
     public int compare(Character l, Character r) {
       return ROMAN_CHAR_VALUES.get(l) - ROMAN_CHAR_VALUES.get(r);
     }

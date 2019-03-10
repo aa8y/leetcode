@@ -19,7 +19,7 @@ public class MinimumWindowSubstringTest {
   }
 
   @Test
-  public void testLeetCodeTestCase51() {
+  public void testLeetCodeTestCase051() {
     String s = "a";
     String t = "aa";
     String expected = "";
