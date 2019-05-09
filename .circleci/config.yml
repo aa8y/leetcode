@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: aa8y/sbt:1.2.8
+    working_directory: /usr/src/app
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - build-dependencies-{{ checksum "build.sbt" }}
+          - sbt-dependencies-{{ checksum "project/build.properties" }}
+      - run: sbt test:compile
+      - save_cache:
+          paths:
+            - ~/.ivy2/cache
+            - ~/.m2
+          key: build-dependencies--{{ checksum "build.sbt" }}
+      - save_cache:
+          paths:
+            - ~/.sbt
+          key: sbt-dependencies-{{ checksum "project/build.properties" }}
+      - run: sbt test
