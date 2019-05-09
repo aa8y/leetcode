@@ -1,2 +1,7 @@
+# Java
+java/.gradle
+java/build/
+
+# Scala
 **/target/
 scala/project/project
