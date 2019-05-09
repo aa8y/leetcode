@@ -5,3 +5,7 @@ java/build/
 # Scala
 **/target/
 scala/project/project
+
+# Node
+node/coverage/
+node/node_modules/
