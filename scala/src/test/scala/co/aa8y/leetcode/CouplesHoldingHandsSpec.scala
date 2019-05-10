@@ -1,7 +1,8 @@
 package co.aa8y.leetcode
 
-import org.scalatest.FunSpec
+import org.scalatest.{FunSpec, Ignore}
 
+@Ignore
 class CouplesHoldingHandsSpec extends FunSpec {
   describe("765. Couples Holding Hands") {
     import CouplesHoldingHands._

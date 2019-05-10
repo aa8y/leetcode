@@ -1,7 +1,8 @@
 package co.aa8y.leetcode
 
-import org.scalatest.FunSpec
+import org.scalatest.{FunSpec, Ignore}
 
+@Ignore
 class PrefixAndSuffixSearchSpec extends FunSpec with ResourceHelper {
   describe("Problem 745: Prefix and Suffix Search") {
     describe("WordFilter.f()") {

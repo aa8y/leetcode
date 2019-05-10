@@ -1,7 +1,8 @@
 package co.aa8y.leetcode
 
-import org.scalatest.FunSpec
+import org.scalatest.{FunSpec, Ignore}
 
+@Ignore
 class LargestPlusSignSpec extends FunSpec {
   describe("764. Largest Plus Sign") {
     import LargestPlusSign._
