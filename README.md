@@ -1,6 +1,6 @@
 # Solutions to [LeetCode problems](https://leetcode.com/problemset/all/)
 
-[![CircleCI](https://circleci.com/gh/aa8y/leetcode.svg?style=svg)](https://circleci.com/gh/aa8y/leetcode)
+[![Build Status](https://travis-ci.org/aa8y/leetcode.svg?branch=master)](https://travis-ci.org/aa8y/leetcode)
 
 ## Langauages
 
@@ -21,7 +21,7 @@ More might get added in the future as I learn new languages.
 
 ## Solutions by language
 
-| #    | Problem  |         Difficulty         | Status (w/ Source) |        Runtime (in)       |      Memory Usage (in)    |
+| #    | Problem  |         Difficulty         | Status (w/ Source) |        Runtime (ms)       |      Memory Usage (MB)    |
 |-----:|:---------|:--------------------------:|:------------------:|-----------------------------:|-----------------------------:|
 |    1 | [Two Sum](https://leetcode.com/problems/two-sum/submissions/) | Easy | [Java](https://github.com/aa8y/leetcode/blob/master/java/src/main/java/co/aa8y/leetcode/TwoSumBruteForce.java) | 44 | 39.5 |
 |      |                                                               |      | [Java](https://github.com/aa8y/leetcode/blob/master/java/src/main/java/co/aa8y/leetcode/TwoSumLinearTime.java) |  4 | 38.4 |

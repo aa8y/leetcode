@@ -2,6 +2,6 @@ sudo: required
 services:
   - docker
 before_script:
-  - docker build -t aa8y/leetcode:scala scala/
+  - ./before-test.sh
 script:
-  - docker run --rm -it aa8y/leetcode:scala test
+  - ./test.sh
